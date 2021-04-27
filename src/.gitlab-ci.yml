@@ -1,0 +1,20 @@
+# This file is a template, and might need editing before it works on your project.
+# Official language image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/python/tags/
+image: "python:latest" #commands to run in the Docker container before starting each job.
+before_script:
+  - pip3 install -r requirements.txt
+  - python -m pip install --upgrade pip wheel setuptools
+  - python -m pip install kivy
+  - python -m pip install mysql-connector
+stages:
+  - Static Analysis
+  - Test
+pylint:
+  stage: Static Analysis
+  script:
+  - pylint -d C0301 main.py
+pytest: 
+  stage: Test
+  script:
+    - pytest

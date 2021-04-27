@@ -1,0 +1,175 @@
+#MENU DOKTER
+#Chat
+#Update Jadwal
+#Lihat Reservasi
+
+
+<HomedokterWindow>:
+    id: homedokter_win
+    canvas:
+        Color:
+            rgba: rgba('#FFFFFF')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    padding: 20,20,20,20
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.3
+        canvas:
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [17, 17, 17, 17]
+                source: '../img/homebg2.jpg'
+
+        BoxLayout:
+            size_hint_y: 0.4
+            canvas:
+                RoundedRectangle:
+                    size: (250,261)
+                    pos: (self.size[0]/4 - 10, self.pos[1]-70)
+                    source: '../img/profile.png'
+        BoxLayout:
+            size_hint_y: 0.5
+
+        Button:
+            size_hint_y: 0.1
+            text: 'Sign out'
+            font_size: 20
+            color: (1,1,1,1)
+            background_color: (0,0,0,0)
+            text_size: self.size
+            halign: 'left'
+            padding_x: 30
+            padding_y: 30
+            on_release: root.to_signin()
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.7
+        padding: 20,20,20,20
+        spacing: 12
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 0.33
+            canvas:
+                Color:
+                    rgba: rgba('#F0F0F0')
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10, 10, 10, 10]
+            Label:
+                size_hint_y: 0.5
+            Label:
+                text: 'Welcome'
+                color: rgba('#6f6f6f')
+                font_size: 50
+            Label:
+                id: name_field
+                text: '' #Nanti ganti jadi markup
+                color: rgba('#53CBFF')
+                font_size: 50
+                bold: True
+                markup: True
+            Label:
+                size_hint_y: 0.4
+
+        BoxLayout:
+            size_hint_y: 0.33
+            spacing: 12
+
+            MenuButton:
+                size_hint_x: 0.66
+                #Bisa diganti logo nanti, tapi gabisa bikinnya
+                canvas:
+                    Color:
+                        rgba: rgba('#3894FF')
+                    RoundedRectangle:
+                        size: (90,90)
+                        pos: (self.pos[0] + 229, self.pos[1]+70)
+                        radius: [50, 50, 50, 50]
+                text: 'Update Jadwal'
+                text_size: self.size
+                halign: 'center'
+                valign: 'bottom'
+                padding_y: 25
+                font_size: 22
+                color: rgba('#6f6f6f')
+
+            MenuButton:
+                size_hint_x: 0.33
+                canvas:
+                    Color:
+                        rgba: rgba('#FFD338')
+                    RoundedRectangle:
+                        size: (90,90)
+                        pos: (self.pos[0] + 87, self.pos[1]+70)
+                        radius: [50, 50, 50, 50]
+                text: 'Cek Reservasi'
+                text_size: self.size
+                halign: 'center'
+                valign: 'bottom'
+                padding_y: 25
+                font_size: 22
+                color: rgba('#6f6f6f')
+
+        BoxLayout:
+            size_hint_y: 0.33
+            spacing: 12
+
+            MenuButton:
+                size_hint_x: 0.33
+                canvas:
+                    Color:
+                        rgba: rgba('#FF5B5B')
+                    RoundedRectangle:
+                        size: (90,90)
+                        pos: (self.pos[0] + 87, self.pos[1]+70)
+                        radius: [50, 50, 50, 50]
+                text: 'Chat'
+                text_size: self.size
+                halign: 'center'
+                valign: 'bottom'
+                padding_y: 25
+                font_size: 22
+                color: rgba('#6f6f6f')
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_x: 0.66
+                canvas:
+                    Color:
+                        rgba: rgba('#F0F0F0')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10, 10, 10, 10]
+                Label:
+                    size_hint_y: 0.4
+                    text: 'DAILY QUOTE'
+                    color: rgba('#000000')
+                    bold: True
+                    font_size: 20
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'bottom'
+                    padding_x: 25
+                    padding_y: 20
+                    color: rgba('#6f6f6f')
+
+                Label:
+                    size_hint_y: 0.6
+                    text: '"The good physician treats the disease; the great physician treats the patient who has the disease” – Jim Rohn.'
+                    italic: True
+                    color: rgba('#000000')
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'top'
+                    padding_x: 25
+                    font_size: 20
+                    color: rgba('#6f6f6f')
+

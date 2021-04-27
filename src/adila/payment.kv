@@ -1,0 +1,534 @@
+<BoxPay@BoxLayout>:
+    canvas:
+        Color:
+            rgba: rgba('#C4C4C4')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+
+<LabelPay@Label>:
+    text: ''
+    color: rgba('#4D4B4B')
+    font_size: 14
+    bold: True
+
+<RoundedButton2@Button>:
+    background_color: (0,0,0,0)
+    canvas.before:
+        Color:
+            rgba: rgba('#f0e267') if self.state=='normal' else rgba('#53CBFF')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [17,17,17,17]
+
+<PaymentWindow>:
+    canvas:
+        Color:
+            rgba: rgba('#FFFFFF')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    orientation: 'horizontal'
+    padding: [30,50,30,50]
+    spacing: 30
+    BoxLayout:
+        size_hint_x: 0.7
+        
+
+        orientation: 'vertical'
+        #spacing: 10
+        BoxLayout:
+            size_hint_y: 0.2
+            canvas:
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [17, 17, 0, 0]
+                    source: '../img/samplebg.jpg'
+                    #Image:
+                        #size_hint: .15, .15
+            padding: [50,10,50,10]
+            
+            #profile
+            BoxLayout:
+                size_hint_x: 0.15
+                
+                canvas:
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                        source: '../img/profile.png'
+                
+            
+            #size_hint_x: 0.726
+            BoxLayout:
+                #size_hint_x: 2
+                canvas:
+                    Color:
+                        rgba: (0, 0, 0, 0)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                #Label:
+                    #size_hint_x: 0.12
+                
+                Label:
+                    id: name_field
+                    text: ''
+                    color: rgba('#FFFFFF')
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'center'
+                    padding_x: 30 
+                    bold: True
+                    font_size: 30
+            #padding: [10,10,10,10]
+            BoxLayout:
+                size_hint_x: 0.135
+                canvas:
+                    #Color:
+                        #rgba: (0, 0, 1, 1)
+                    Rectangle:
+                        size: (self.size[0]*0.8, self.size[1]*0.8)
+                        pos: (self.pos[0]+10, self.pos[1]+8)
+                        source: '../img/shop.png'
+                        #padding: (10,10)
+
+                        
+            
+        #barang belanjaan
+        BoxLayout:
+            #size_hint_y: 0.8
+            canvas:
+                Color:
+                    rgba: rgba('#F0F0F0')
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [0, 0, 17, 17]
+            
+            padding: [50,20,50,30]
+            BoxLayout:
+                
+                orientation: 'vertical'
+                #ada 12
+                #ID
+                BoxLayout:
+
+                    orientation: 'horizontal'
+                    BoxLayout:
+                        Label:
+                            text: 'ID Transaksi'
+                            font_size: 16
+                            color: rgba('#000000')
+                            halign: 'left'
+                            valign: 'top'
+                    BoxLayout:
+                        Label:
+                            id: idField
+                            text: '2'
+                            font_size: 16
+                            color: rgba('#000000')
+                            bold: True
+                    BoxLayout:
+                        Label:
+                            text: ''
+                    BoxLayout:
+                        Label:
+                            text: 'Total    (Rp.)'
+                            font_size: 16
+                            color: rgba('#000000')
+                    BoxLayout:
+                        Label:
+                            id: totalharga
+                            text: ''
+                            color: rgba('#000000')
+                            #bold: True
+                            font_size: 25
+                        
+
+                #judul tabel
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#959595')
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [17, 17, 0, 0]
+
+                    Label:
+                        size_hint_x: 0.1
+                        text: "NO"
+                        color: rgba('#000000')
+                        font_size: 13
+                        bold: True
+                        
+                    Label:
+                        size_hint_x: 0.5
+                        text: "NAMA OBAT"
+                        color: rgba('#000000')
+                        font_size: 13
+                        bold: True
+                        
+                    Label:
+                        size_hint_x: 0.25
+                        text: "HARGA SATUAN"
+                        color: rgba('#000000')
+                        font_size: 13
+                        bold: True
+                        
+                    Label:
+                        size_hint_x: 0.1
+                        text: "#"
+                        color: rgba('#000000')
+                        font_size: 13
+                        bold: True
+                        
+                    Label:
+                        size_hint_x: 0.25
+                        text: "SUBTOTAL"
+                        color: rgba('#000000')
+                        font_size: 13
+                        bold: True
+                        
+                        
+                #barang 1
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#C4C4C4')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos   
+                    LabelPay:
+                        id: no1
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: barang1
+                        size_hint_x: 0.5
+                    LabelPay:
+                        id: harga1
+                        size_hint_x: 0.25
+                    LabelPay:
+                        id: jumlah1
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: subtotal1
+                        size_hint_x: 0.25
+                    
+                        
+                #barang 2
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#C4C4C4')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    LabelPay:
+                        id: no2
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: barang2
+                        size_hint_x: 0.5
+                    LabelPay:
+                        id: harga2
+                        size_hint_x: 0.25
+                    LabelPay:
+                        id: jumlah2
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: subtotal2
+                        size_hint_x: 0.25
+                        
+                #barang 3
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#C4C4C4')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    LabelPay:
+                        id: no3
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: barang3
+                        size_hint_x: 0.5
+                    LabelPay:
+                        id: harga3
+                        size_hint_x: 0.25
+                    LabelPay:
+                        id: jumlah3
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: subtotal3
+                        size_hint_x: 0.25
+
+                #barang 4
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#C4C4C4')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    LabelPay:
+                        id: no4
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: barang4
+                        size_hint_x: 0.5
+                    LabelPay:
+                        id: harga4
+                        size_hint_x: 0.25
+                    LabelPay:
+                        id: jumlah4
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: subtotal4
+                        size_hint_x: 0.25
+                #barang 5
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#C4C4C4')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    LabelPay:
+                        id: no5
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: barang5
+                        size_hint_x: 0.5
+                    LabelPay:
+                        id: harga5
+                        size_hint_x: 0.25
+                    LabelPay:
+                        id: jumlah5
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: subtotal5
+                        size_hint_x: 0.25
+                #barang 6
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#C4C4C4')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    LabelPay:
+                        id: no6
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: barang6
+                        size_hint_x: 0.5
+                    LabelPay:
+                        id: harga6
+                        size_hint_x: 0.25
+                    LabelPay:
+                        id: jumlah6
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: subtotal6
+                        size_hint_x: 0.25
+                #barang 7
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#C4C4C4')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    LabelPay:
+                        id: no7
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: barang7
+                        size_hint_x: 0.5
+                    LabelPay:
+                        id: harga7
+                        size_hint_x: 0.25
+                    LabelPay:
+                        id: jumlah7
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: subtotal7
+                        size_hint_x: 0.25
+                #barang 8
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#C4C4C4')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    LabelPay:
+                        id: no8
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: barang8
+                        size_hint_x: 0.5
+                    LabelPay:
+                        id: harga8
+                        size_hint_x: 0.25
+                    LabelPay:
+                        id: jumlah8
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: subtotal8
+                        size_hint_x: 0.25
+                #barang 9
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#C4C4C4')
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    LabelPay:
+                        id: no9
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: barang9
+                        size_hint_x: 0.5
+                    LabelPay:
+                        id: harga9
+                        size_hint_x: 0.25
+                    LabelPay:
+                        id: jumlah9
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: subtotal9
+                        size_hint_x: 0.25
+                #barang 10
+                BoxLayout:
+                    canvas:
+                        Color:
+                            rgba: rgba('#C4C4C4')
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [0, 0, 17, 17]  
+                    LabelPay:
+                        id: no10
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: barang10
+                        size_hint_x: 0.5
+                    LabelPay:
+                        id: harga10
+                        size_hint_x: 0.25
+                    LabelPay:
+                        id: jumlah10
+                        size_hint_x: 0.1
+                    LabelPay:
+                        id: subtotal10
+                        size_hint_x: 0.25
+                    
+            
+    BoxLayout:
+        size_hint_x: 0.3
+        orientation: 'vertical'
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: rgba('#F0F0F0')
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [17, 17, 0, 0]
+
+            
+            #dropdown
+            BoxLayout:
+                orientation: 'vertical'
+                size: root.width, root.height
+                #spacing: 10
+                Label:
+                    size_hint_y: 0.25
+                    id: click_label
+                    text: "Pilih metode pembayaran"
+                    color: rgba('#01185E')
+                    font_size: 18
+                    text_size: self.size
+                    halign: 'center'
+                    valign: 'center'
+                    
+                    bold: True
+                    #color: rgba('#C4C4C4')
+
+                Spinner:
+                    size_hint_y: 0.2
+                    #size_hint_x: 1.1
+                    id: spinner_id
+                    text: "Metode pembayaran"
+                    font_size: 16
+                    color: rgba('#FFFFFF')
+                    bold: True
+                    #background_color: rgba('#C4C4C4')
+                    values: ['GoPay','OVO','BCA','BNI','BRI','CIMB Niaga']
+                    #background_color: 0,0,1,1 #biru
+
+                    on_text: root.spinner_clicked(spinner_id.text)
+                    #on_release: 
+                        #self.background_color=1, 1, 0, 1    # yellow
+                
+                Label:
+                    #size_hint_y: 3.7
+
+                    text: ''
+                
+
+
+        Button:
+            
+            size_hint_y: 0.1
+            background_normal: ''
+            background_color: rgba('#BE92E1')
+            text: 'Halaman Pembelian'
+            text_size: self.size
+            halign: 'center'
+            valign: 'center'
+            font_size: 22
+            bold: True
+            color: rgba('#FFFFFF')
+            on_release: root.to_pembelian()
+            on_release: root.delete_transaksi()
+
+
+        Button:
+            size_hint_y: 0.1
+        
+            background_color: rgba('#01185E')
+            background_normal: ''
+            radius: [17,17,17,17]
+            
+            text: 'B A Y A R'
+            text_size: self.size
+            halign: 'center'
+            valign: 'center'
+            
+            font_size: 22
+            bold: True
+            color: rgba('#FFFFFF') #warna tulisan
+            on_release: root.to_paySuccess()
+            on_release: root.afterBayar()
+            #root.afterBayar()
+            #root.delete_transaksi()
+
+<Test>:
+    canvas:
+        Color:
+            rgba: rgba('#F0F0F0')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Label:
+        text: root.receipt
+        color: rgba('#6f6f6f')
+        pos_hint: {"x":0, "top":1}

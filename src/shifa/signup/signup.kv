@@ -1,0 +1,121 @@
+#: import rgba kivy.utils.rgba
+
+<SignupWindow>:
+    id: signup_win
+    orientation: 'vertical'
+    canvas:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: '../img/samplebg.jpg'
+
+    Label:
+        size_hint_y: 0.1
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 1.1*self.size[0]/3, 0
+        canvas:
+            Color:
+                rgba: (1,1,1,1)
+            RoundedRectangle:
+                size: (self.size[0]/3, self.size[1])
+                pos: (self.pos[0]+self.size[0]/3, self.pos[1])
+                radius: [15, ]
+
+        Label:
+            size_hint_y: None
+            height: 120
+            text: 'Sign Up'
+            bold: True
+            text_size: self.size
+            halign: 'center'
+            valign: 'top'
+            padding_y: 30
+            font_size: 50
+            color: rgba('#6f6f6f')
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 20
+            size_hint_y: None
+            height: 300
+
+            RoundedTextInput:
+                id: name_field
+                hint_text: 'Full name'
+                multiline: False
+                font_size: 16
+                padding: 0, 10
+                on_text_validate: email_field.focus = True
+
+            RoundedTextInput:
+                id: email_field
+                hint_text: 'Email address'
+                multiline: False
+                font_size: 16
+                padding: 0, 10
+                on_text_validate: phone_field.focus = True
+
+            RoundedTextInput:
+                id: phone_field
+                hint_text: 'Phone number'
+                multiline: False
+                font_size: 16
+                padding: 0, 10
+                on_text_validate: username_field.focus = True
+
+            RoundedTextInput:
+                id: username_field
+                hint_text: 'Username'
+                multiline: False
+                font_size: 16
+                padding: 0, 10
+                on_text_validate: pass_field.focus = True
+
+            RoundedTextInput:
+                id: pass_field
+                hint_text: 'Password'
+                multiline: False
+                font_size: 16
+                password: True
+                padding: 0, 10
+                on_text_validate: root.validate_account()
+
+        Label:
+            size_hint_y: None
+            height: 20
+
+        RoundedButton:
+            text: 'Sign Up'
+            font_size: 16
+            size_hint_y: None
+            height: 45
+            on_release: root.validate_account()
+
+        Label:
+            id: message
+            text: ''
+            font_size: 16
+            markup: True
+
+        BoxLayout:
+            Label:
+                size_hint_x: 0.6
+
+            Button:
+                id: to_signup
+                size_hint_x: 0.4
+                background_color: (0,0,0,0)
+                text: 'Sign in instead!'
+                font_size: 17
+                #bold: True
+                color: rgba('#292775')
+                text_size: self.size
+                halign: 'right'
+                padding_y: 40
+                on_release: root.to_signin()
+
+
+    Label:
+        size_hint_y: 0.1

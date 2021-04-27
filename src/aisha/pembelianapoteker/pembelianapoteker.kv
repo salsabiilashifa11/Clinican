@@ -1,0 +1,916 @@
+<TransacButton@Button>:
+    background_color: (0,0,0,0)
+    canvas.before:
+        Color:
+            rgba: rgba('#d9d9d9') if self.state=='normal' else rgba('#ffbb73')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [10]
+
+<PopupDetailPembelian>:
+    orientation : 'vertical'
+    canvas:
+        Color:
+            rgba: rgba('#595959')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [10]
+    BoxLayout:
+        pos_hint: {'x':0, 'y':.0}
+        orientation: 'vertical'
+        padding: 20,20,20,20
+        spacing: 20
+        BoxLayout:
+            size: self.size
+            orientation: 'horizontal'
+            spacing: 20
+            Label:
+                size_hint_x: 0.33
+                text: 'ID Transaksi'
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+            Label:
+                size_hint_x: 0.33
+                text: root.idTrans
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 20
+            Label:
+                size_hint_x: 0.33
+                text: 'ID Akun'
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+            Label:
+                size_hint_x: 0.33
+                text: root.idAkun
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 20
+            Label:
+                size_hint_x: 0.33
+                text: 'Nama Obat'
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+            Label:
+                size_hint_x: 0.33
+                text: root.namaObat
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 20
+            Label:
+                size_hint_x: 0.33
+                text: 'Kuantitas'
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+            Label:
+                size_hint_x: 0.33
+                text: root.kuantitas
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 20
+            Label:
+                size_hint_x: 0.33
+                text: 'Harga'
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+            Label:
+                size_hint_x: 0.33
+                text: root.harga
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [10]
+
+<PopUpStokObat>:
+    orientation : 'vertical'
+    canvas:
+        Color:
+            rgba: rgba('#e3e3e3')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+        pos_hint: {'x':0, 'y':.0}
+        orientation: 'vertical'
+        padding: 20,20,20,20
+        spacing:20
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: 'ID Obat'
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label: 
+                size_hint_x: 0.33
+                text: 'Nama Obat'
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label: 
+                size_hint_x: 0.33
+                text: 'Stok'
+                font_size: 15
+                color: rgba('#3d3d3d')
+        Label:
+            canvas.before:
+                Color: 
+                    rgba: (0,0,0,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            height: 1
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(0)
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+            Label: 
+                size_hint_x: 0.33
+                text: root.getNamaObat(0)
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+            Label: 
+                size_hint_x: 0.33
+                text: root.getStok(0)
+                font_size: 15
+                color: rgba('#3d3d3d')
+                canvas.before:
+                    Color:
+                        rgba : rgba('#e3e3e3')
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(1)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(1)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getStok(1)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(2)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label: 
+                size_hint_x: 0.33
+                text: root.getNamaObat(2)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label: 
+                size_hint_x: 0.33
+                text: root.getStok(2)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(3)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(3)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getStok(3)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(4)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label: 
+                size_hint_x: 0.33
+                text: root.getNamaObat(4)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label: 
+                size_hint_x: 0.33
+                text: root.getStok(4)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(5)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(5)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getStok(6)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(6)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label: 
+                size_hint_x: 0.33
+                text: root.getNamaObat(6)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label: 
+                size_hint_x: 0.33
+                text: root.getStok(6)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(7)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(7)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getStok(7)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(8)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label: 
+                size_hint_x: 0.33
+                text: root.getNamaObat(8)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label: 
+                size_hint_x: 0.33
+                text: root.getStok(8)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.1
+            padding:20
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(9)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(9)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getStok(9)
+                font_size: 15
+                color: rgba('#3d3d3d')      
+        
+<PopUpPemasukan>:
+    orientation : 'vertical'
+    canvas:
+        Color:
+            rgba: rgba('#e3e3e3')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        pos_hint: {'x':0, 'y':.0}
+        orientation: 'vertical'
+        padding: 20,20,20,20
+        spacing:20
+        BoxLayout:
+            #pos_hint: {'x':0, 'y':.0}
+            orientation: 'vertical'
+            padding: 20,20,20,20
+            spacing:20
+            BoxLayout:
+                size_hint_y: 0.1
+                padding:0
+                orientation: 'horizontal'
+                Label:
+                    size_hint_x: 0.33
+                    font_size: 15
+                    text: 'ID Obat'
+                    color: rgba('#3d3d3d')
+                Label: 
+                    size_hint_x: 0.33
+                    text: 'Nama Obat'
+                    font_size: 15
+                    color: rgba('#3d3d3d')
+                Label: 
+                    size_hint_x: 0.33
+                    text: 'Kuantitas'
+                    font_size: 15
+                    color: rgba('#3d3d3d')
+                Label: 
+                    size_hint_x: 0.33
+                    text: 'Pemasukan'
+                    font_size: 15
+                    color: rgba('#3d3d3d')
+        Label:
+            canvas.before:
+                Color: 
+                    rgba: (0,0,0,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            height: 1
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(0)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(0)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getKuantitas(0)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getPemasukanObat(0)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(1)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(1)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getKuantitas(1)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getPemasukanObat(1)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(2)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(2)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getKuantitas(2)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getPemasukanObat(2)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(3)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(3)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getKuantitas(3)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getPemasukanObat(3)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(4)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(4)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getKuantitas(4)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getPemasukanObat(4)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(5)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(5)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getKuantitas(5)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getPemasukanObat(5)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(6)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(6)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getKuantitas(6)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getPemasukanObat(6)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(7)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(7)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getKuantitas(7)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getPemasukanObat(7)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(8)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(8)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getKuantitas(8)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getPemasukanObat(8)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.33
+                text: root.getidObat(9)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getNamaObat(9)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getKuantitas(9)
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.getPemasukanObat(9)
+                font_size: 15
+                color: rgba('#3d3d3d')
+        Label:
+            canvas.before:
+                Color: 
+                    rgba: (0,0,0,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            height: 1
+
+        BoxLayout:
+            size_hint_y: 0.5
+            orientation: 'horizontal'
+            Label:
+                size_hint_x: 0.66
+                text: 'Total'
+                font_size: 15
+                color: rgba('#3d3d3d')
+            Label:
+                size_hint_x: 0.33
+                text: root.totalPemasukan()
+                font_size: 15
+                color: rgba('#3d3d3d')
+
+#======WINDOW PEMBELIAN APOTEKER==========        
+<PembelianapotekerWindow>:
+#----BACKGROUND
+    padding: 20,20,20,20
+    spacing: 12
+    background_color: rgba('#FFFFFF')
+    orientation: 'vertical'
+    canvas:
+        Color:
+            rgba: rgba('#f0f0f0')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+#-----HEADER
+    BoxLayout:
+        size_hint_y: 0.2
+        orientation: 'horizontal'
+        spacing: 20
+        canvas:
+            Color:
+                rgba: rgba('#ffae70')
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [17, 17, 0, 0]
+        padding: [50,10,50,10]
+        #profile
+        Button:
+            background_color: (0,0,0,0)
+            size_hint_x: 0.1
+            canvas.before:
+                Color:
+                    rgba: rgba('#ffae70') if self.state=='normal' else rgba('#d9d9d9')
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10]
+                    source: '../img/leftarrow4.png'
+            on_release: root.to_homeapoteker()
+        BoxLayout:
+            size_hint_x: 0.15            
+            canvas:
+                Rectangle:
+                    size: (100,100)
+                    pos: (self.pos[0], self.pos[1]-10)
+                    source: '../img/profile.png'
+        Label:
+            id: name_field
+            text: 'ADMIN'
+            color: rgba('#FFFFFF')
+            text_size: self.size
+            halign: 'left'
+            valign: 'center'
+            padding_x: 30 
+            bold: True
+            font_size: 50
+
+#-----KONTEN
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 30
+        canvas:
+            Color:
+                rgba: rgba('#F0F0F0')
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [0,0,17,17]
+#---------DAFTAR TRANSAKSI PEMBELIAN
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: rgba('#e3e3e3')
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [0,0,17,17]
+            orientation: 'vertical'
+            size_hint_x: 0.8
+            spacing: 12
+            padding: 50,20,50,50
+            Label:
+                size_hint_y: 0.1
+                text_size: self.size
+                halign: 'left'
+                valign: 'center'
+                text: 'DAFTAR PEMBELIAN'
+                color: rgba('#000000')
+                bold: True
+                font_size: 20
+            TransacButton:
+                text: 'TRANSAKSI 1'
+                font_size: 15
+                size_hint_y: 0.07
+                on_release: root.showCekBeli(1)
+                color: rgba('#000000')
+            TransacButton:
+                text: 'TRANSAKSI 2'
+                font_size: 15
+                size_hint_y: 0.07
+                on_release: root.showCekBeli(2)
+                color: rgba('#000000')
+            TransacButton:
+                size_hint_y: 0.07
+                text: 'TRANSAKSI 3'
+                font_size: 15
+                on_release: root.showCekBeli(3)
+                color: rgba('#000000')
+            TransacButton:
+                size_hint_y: 0.07
+                text: 'TRANSAKSI 4'
+                font_size: 15
+                on_release: root.showCekBeli(4)
+                color: rgba('#000000')
+            TransacButton:
+                size_hint_y: 0.07
+                text: 'TRANSAKSI 5'
+                font_size: 15
+                on_release: root.showCekBeli(5)
+                color: rgba('#000000')
+            TransacButton:
+                size_hint_y: 0.07
+                text: 'TRANSAKSI 6'
+                font_size: 15
+                on_release: root.showCekBeli(6)
+                color: rgba('#000000')
+            TransacButton:
+                size_hint_y: 0.07
+                text: 'TRANSAKSI 7'
+                font_size: 15
+                on_release: root.showCekBeli(7)
+                color: rgba('#000000')
+            TransacButton:
+                size_hint_y: 0.07
+                text: 'TRANSAKSI 8'
+                font_size: 15
+                on_release: root.showCekBeli(8)
+                color: rgba('#000000')
+            TransacButton:
+                size_hint_y: 0.07
+                text: 'TRANSAKSI 9'
+                font_size: 15
+                on_release: root.showCekBeli(9)
+                color: rgba('#000000')
+            TransacButton:
+                size_hint_y: 0.07
+                text: 'TRANSAKSI 10'
+                font_size: 15
+                on_release: root.showCekBeli(10)
+                color: rgba('#000000')
+
+#---------BUTTON STOK OBAT + LAPORAN PEMASUKAN
+        BoxLayout:
+            padding: 50,50,50,50
+            size_hint_x: 0.2
+            orientation: 'vertical'
+            spacing: 50
+            canvas:
+                Color:
+                    rgba: rgba('#e3e3e3')
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [0,0,17,17]
+            Button:
+                size_hint_y: 0.5
+                padding: 100,100
+                font_size: 22
+                on_release: root.ShowStokObat()
+                background_color: (0,0,0,0)
+                canvas.before:
+                    Color:
+                        rgba: rgba('#edebeb') if self.state=='normal' else rgba('#ffbb73')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [17]
+                        source: '../img/obat.png'
+
+            Button:
+                size_hint_y: 0.5
+                padding: 100,100
+                font_size: 22
+                color: rgba('#FF5B5B')
+                on_release: root.ShowPemasukan()
+                background_color: (0,0,0,0)
+                canvas.before:
+                    Color:
+                        rgba: rgba('#edebeb') if self.state=='normal' else rgba('#ffbb73')
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [17]
+                        source: '../img/laporan.png'
+         
+        
+            
+            
